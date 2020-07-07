@@ -225,6 +225,7 @@ console.log(artists[9].name);
  * For example, if getArtistByIndex is invoked with the artists dataset and the number 0,
  * it will return `The artist at index 0 is Amedeo Modigliani`.
 */
+/*
 function getArtistByIndex(array, index) {
     // Return String The artist at index {id} is {name}.
     let name = array[index].name;
@@ -234,14 +235,15 @@ function getArtistByIndex(array, index) {
   
   getArtistByIndex(artists, 0);
 
-  /**
+*/
 
 
 /* Task 4: Create a function called get20s() that takes data as an argument and returns an array with names of artists who were born in and died in 20th century (1900-2000) example born in 1901 and died in 1959 - included / born in 1889 and died in 1925 not included - should return ["Salvador Dali", "Frida Kahlo"]*/
+/*
 function get20s(array, firstYear, secondYear){
   let specificSearch = [];
     for (let i = 0; i < array.length; i++){
-      arrayYears = array[i].years.split("-");
+      let arrayYears = array[i].years.split("-");
       if (arrayYears[0] > 1899 && arrayYears[1] < 2001){
         specificSearch.push(array[i].name);
       }
@@ -250,7 +252,7 @@ function get20s(array, firstYear, secondYear){
 }
 
 get20s(artists, 1900, 2000);
-
+*/
 
 /* Task 5: Create a function called `removeArtist` that takes two arguments:
  *     (1) artists array
@@ -262,6 +264,7 @@ get20s(artists, 1900, 2000);
  * 
  * Note that sucessfully invoking this function multiple times without refreshing your browser will continuously remove artists from the array until there are none left. If you refresh your browser, the data will reset.  
 */
+/*
 function removeArtist(array, artistIndex) {
     let index = array[artistIndex];
     array.splice(index, 1);
@@ -270,7 +273,7 @@ function removeArtist(array, artistIndex) {
   
 removeArtist(artists, 0);
  
-
+*/
 /**
 /* Task 6: Create a function called `addArtist` that can accept an object of information and add it to the artists array. Then, add a 21st artist to the array (you) with custom information!👩‍🎨👨‍🎨
 
@@ -283,7 +286,7 @@ nationality: Your Nationality Here
 bio: Add 1-2 sentences (or use lorem ipsum) 
 
 At the end, this function should return the new array with information added"*/
-
+/*
 function addArtist(array, id, name, years, genre, nationality, bio){
   array.push({
     "id": id,
@@ -297,7 +300,7 @@ function addArtist(array, id, name, years, genre, nationality, bio){
   }
 
 addArtist(artists, 20, "Joshua Martinez", "1983 - Present", "Hip-Hop", "Puerto Rican", "Joshua Martinez was born in Lawrence, Massachusetts. He loves sports and fast cars. Enjoys cooking food for people.");
-
+*/
 /* Task 7: Create a function called lotsOfArt() that takes one argument: 
 
     (1) artists array 
@@ -341,11 +344,21 @@ The function should console.log 50 chunks of HTML code that match the structure 
 
 ‼️ You do **NOT** need to get these to display on your page, but you can copy and paste the result into your HTML file if you'd like to see what that would look like. */
 
-function getHTML(/* Code here */){
-
-    /* Code here */
-
+function getHTML(data){
+  for (let i = 0; i < data.length; i++){
+    console.log(`<div id="artist">
+      <div class="image">
+          <img src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/3/starry-night-by-vincent-van-gogh-vincent-van-gogh.jpg"/>
+      </div>
+      <div class = "name">
+        <a href="${data[i].wikipedia}"> ${data[i].name}</a>
+      </div>
+      <div class = "bio">${data[i].bio}</div>
+    </div>`)
   }
+}
+
+getHTML(artists);
 
 
 /* STRETCH 2: Create a function called `randomize` that takes a data array as an argument and returns a the same array in a randomized order. */
